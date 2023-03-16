@@ -34,9 +34,9 @@ app.post('/complete', async (req: Request, res: Response) => {
     const { message } = req.body;
 
     try {
-        const resp = await openai.createCompletion({
-            model: "gpt-3.5-turbo-0301",
-            prompt: [{ role: "user", content: message }],
+        const resp = await openai.createChatCompletion({
+            model: "gpt-3.5-turbo",
+            messages: [{ role: "user", content: message }],
         });
 
         console.log(resp.data);
@@ -45,7 +45,9 @@ app.post('/complete', async (req: Request, res: Response) => {
         res.json({ completion });
 
     } catch (error) {
-        console.error(error);
+        // @ts-ignore
+        console.error(error.response.data);
+
         res.status(500).json({ error: 'Error calling OpenAI API' });
     }
 });
