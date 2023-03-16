@@ -6,7 +6,7 @@
   },
   "servers": [
     {
-      "url": "https://chatgpt.103e8yg7vtvi.jp-tok.codeengine.appdomain.cloud"
+      "url": "__API_URL__"
     }
   ],
   "paths": {
