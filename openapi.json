@@ -6,7 +6,7 @@
   },
   "servers": [
     {
-      "url": "http://localhost:3000"
+      "url": "https://chatgpt.103e8yg7vtvi.jp-tok.codeengine.appdomain.cloud/"
     }
   ],
   "paths": {

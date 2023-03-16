@@ -35,11 +35,13 @@ app.post('/complete', async (req: Request, res: Response) => {
 
     try {
         const resp = await openai.createCompletion({
-            model: "text-davinci-003",
-            prompt: message,
+            model: "gpt-3.5-turbo-0301",
+            prompt: [{ role: "user", content: message }],
         });
 
-        const completion = resp.data.choices[0].text;
+        console.log(resp.data);
+
+        const completion = resp.data.choices[0].message?.content;
         res.json({ completion });
 
     } catch (error) {
