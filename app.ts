@@ -33,6 +33,8 @@ app.post('/complete', async (req: Request, res: Response) => {
 
     const { message } = req.body;
 
+    console.log(`message: ${message}`);
+
     try {
         const resp = await openai.createChatCompletion({
             model: "gpt-3.5-turbo",
@@ -41,7 +43,7 @@ app.post('/complete', async (req: Request, res: Response) => {
 
         console.log(resp.data);
 
-        const completion = resp.data.choices[0].message?.content;
+        const completion = resp.data.choices[0]?.message?.content;
         res.json({ completion });
 
     } catch (error) {
